@@ -6,6 +6,7 @@ import { Router, Redirect } from "@reach/router"
 import Login from "src/modules/authentication/Login"
 import SignUp from "src/modules/authentication/SignUp"
 import LandingPage from "./LandingPage"
+import Footer from "src/components/Footer"
 
 /**
  *

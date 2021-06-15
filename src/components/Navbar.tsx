@@ -8,7 +8,7 @@ import Logo from "src/assets/images/logo.png"
 
 const NavbarComponent = (): JSX.Element => {
   return (
-    <Navbar className="justify-content-between navbar test" expand="md">
+    <Navbar className="justify-content-between navbar" expand="md" sticky="top">
       <Navbar.Brand as={Link} to="/">
         {<img src={Logo} width="50px" height="auto" alt="logo" />}
       </Navbar.Brand>
