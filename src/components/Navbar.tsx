@@ -18,7 +18,7 @@ const NavbarComponent = (): JSX.Element => {
           <Nav.Link>Home</Nav.Link>
           <Nav.Link>Contact Us</Nav.Link>
 
-          <a href='#signup' className='btn btn-custom btn-custom-sm btn-lg page-scroll'>
+          <a href='signup' className='btn btn-custom btn-custom-sm btn-lg page-scroll'>
                 Join Us
               </a>{' '}
         </Nav>

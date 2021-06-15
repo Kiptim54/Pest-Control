@@ -14,10 +14,9 @@ const LandingPage = () => {
                 <div className="col-md-8 col-md-offset-2 intro-text">
                   <h1>
                     We value you
-                    <span></span>
                   </h1>
                   <p>Helping farmers to care better for their crops. Say goodbye to pests and diseases quicker with our help</p>
-                  <a href="#features" className="btn btn-custom btn-lg page-scroll">
+                  <a href="signup" className="btn btn-custom btn-lg page-scroll">
                     Join Us
                   </a>{" "}
                 </div>
