@@ -12,8 +12,7 @@ code {
 }
 
 .navbar {
-  -webkit-box-shadow: 0px 0px 6px #00000029;
-          box-shadow: 0px 0px 6px #00000029;
+  box-shadow: 0px 0px 6px #00000029;
 }
 
 a:link,
@@ -22,9 +21,66 @@ a:visited {
 }
 
 .removeOutline:focus {
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
   outline: none !important;
   border: 0;
 }
-/*# sourceMappingURL=main.css.map */
+
+.diagnosis {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  max-width: 100%;
+}
+
+.diagnosis__button {
+  display: flex;
+  justify-content: space-between;
+}
+
+.diagnosis__button > button {
+  max-width: 150px;
+  background-color: #7db569;
+  border-radius: 10px;
+  border: 1px solid #7db569;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.diagnosis__table {
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+thead tr {
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+thead td {
+  font-weight: 700;
+}
+
+td {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  color: #222;
+}
+
+tbody tr {
+  cursor: pointer;
+}
+
+tr td:last-child {
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+}
+
+tr img {
+  width: 150px;
+  height: 100px;
+}/*# sourceMappingURL=main.css.map */
