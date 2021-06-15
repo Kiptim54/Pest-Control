@@ -3,7 +3,7 @@ export const Process = (props) => {
       <div id='process'>
         <div className='container'>
           <div className='section-title text-center'>
-            <h2>Join in a few steps</h2>
+            <h2>Get help in a few steps</h2>
           </div>
           
           <div className='row justify-content-between'>
