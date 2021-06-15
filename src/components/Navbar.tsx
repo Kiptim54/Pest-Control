@@ -2,7 +2,6 @@ import React from "react"
 import Navbar from "react-bootstrap/Navbar"
 
 import Nav from "react-bootstrap/Nav"
-import Button from "react-bootstrap/Button"
 import { Link } from "@reach/router"
 
 import Logo from "src/assets/images/logo.png"
@@ -14,20 +13,13 @@ const NavbarComponent = (): JSX.Element => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto" navbarScroll>
-          <Nav.Link as={Link} to="/">
-            Home
+          <Nav.Link href="/">Home</Nav.Link>
+          <Nav.Link href="/#contact" className="page-scroll">
+            Contact Us
           </Nav.Link>
-          <Nav.Link>Contact Us</Nav.Link>
-
-          <Button
-            as={Link}
-            size="sm"
-            className="removeOutline green-btn btn"
-            style={{ alignSelf: "center", minWidth: "100px", color: "white" }}
-            to="/login"
-          >
+          <Link to="/signup" className="btn btn-custom btn-custom-sm btn-lg page-scroll">
             Join Us
-          </Button>
+          </Link>{" "}
         </Nav>
       </Navbar.Collapse>
     </Navbar>
