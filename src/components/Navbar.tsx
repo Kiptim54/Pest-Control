@@ -9,7 +9,9 @@ import Logo from "src/assets/images/logo.png"
 const NavbarComponent = (): JSX.Element => {
   return (
     <Navbar className="justify-content-between navbar test" expand="md">
-      <Navbar.Brand href="/">{<img src={Logo} width="50px" height="auto" alt="logo" />}</Navbar.Brand>
+      <Navbar.Brand as={Link} to="/">
+        {<img src={Logo} width="50px" height="auto" alt="logo" />}
+      </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto" navbarScroll>
