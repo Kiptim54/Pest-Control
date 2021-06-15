@@ -15,10 +15,10 @@ const NavbarComponent = (): JSX.Element => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto" navbarScroll>
-          <Nav.Link>Home</Nav.Link>
+          <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link>Contact Us</Nav.Link>
 
-          <a href='#signup' className='btn btn-custom btn-custom-sm btn-lg page-scroll'>
+          <a href='/signup' className='btn btn-custom btn-custom-sm btn-lg page-scroll'>
                 Join Us
               </a>{' '}
         </Nav>
