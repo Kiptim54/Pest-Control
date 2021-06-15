@@ -5,6 +5,7 @@ import { Router, Redirect } from "@reach/router"
 //components
 import Login from "src/modules/authentication/Login"
 import SignUp from "src/modules/authentication/SignUp"
+import LandingPage from "./LandingPage"
 
 /**
  *
@@ -36,6 +37,7 @@ function App() {
       <Navbar />
 
       <Router>
+        <GeneralRoute component={LandingPage} path="/" />
         <GeneralRoute component={SignUp} path="/signup" />
         <GeneralRoute component={Login} path="/login" />
       </Router>
