@@ -16,7 +16,7 @@ const NavbarComponent = (): JSX.Element => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto" navbarScroll>
           <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link>Contact Us</Nav.Link>
+          <Nav.Link href='/#contact' className='page-scroll'>Contact Us</Nav.Link>
 
           <a href='/signup' className='btn btn-custom btn-custom-sm btn-lg page-scroll'>
                 Join Us
