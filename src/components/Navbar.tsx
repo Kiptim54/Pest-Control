@@ -1,27 +1,30 @@
 import React from "react"
 import Navbar from "react-bootstrap/Navbar"
-import Container from "react-bootstrap/Container"
-import Row from "react-bootstrap/Row"
-import Col from "react-bootstrap/Col"
+
 import Nav from "react-bootstrap/Nav"
-import { NavDropdown, Form, FormControl, Button } from "react-bootstrap"
+import Button from "react-bootstrap/Button"
+import { Link } from "@reach/router"
 
 import Logo from "src/assets/images/logo.png"
 
 const NavbarComponent = (): JSX.Element => {
   return (
     <Navbar className="justify-content-between navbar test" expand="md">
-      <Navbar.Brand href="/">{<img src={Logo} width="auto" height="50px" alt="logo" />}</Navbar.Brand>
+      <Navbar.Brand href="/">{<img src={Logo} width="50px" height="auto" alt="logo" />}</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto" navbarScroll>
-          <Nav.Link>Home</Nav.Link>
+          <Nav.Link as={Link} to="/">
+            Home
+          </Nav.Link>
           <Nav.Link>Contact Us</Nav.Link>
 
           <Button
+            as={Link}
             size="sm"
-            className="removeOutline"
-            style={{ alignSelf: "center", minWidth: "100px", background: "#7db569", border: "#7db569" }}
+            className="removeOutline green-btn btn"
+            style={{ alignSelf: "center", minWidth: "100px", color: "white" }}
+            to="/login"
           >
             Join Us
           </Button>
