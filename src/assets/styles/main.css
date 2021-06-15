@@ -1,8 +1,10 @@
 body {
   margin: 0;
+  background-color: #f6f6f6;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: "Roboto";
 }
 
 code {
@@ -12,5 +14,17 @@ code {
 .navbar {
   -webkit-box-shadow: 0px 0px 6px #00000029;
           box-shadow: 0px 0px 6px #00000029;
+}
+
+a:link,
+a:visited {
+  color: currentColor;
+}
+
+.removeOutline:focus {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  outline: none !important;
+  border: 0;
 }
 /*# sourceMappingURL=main.css.map */
