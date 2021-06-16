@@ -3,6 +3,7 @@ import Navbar from "react-bootstrap/Navbar"
 import { toast } from "react-toastify"
 
 import Nav from "react-bootstrap/Nav"
+import { NavDropdown } from "react-bootstrap"
 import { Link, navigate } from "@reach/router"
 
 import Logo from "src/assets/images/logo.png"
@@ -10,10 +11,13 @@ import { useEffect } from "react"
 
 const NavbarComponent = (): JSX.Element => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(Boolean(localStorage.getItem("isLoggedIn")))
+  const [currentUser, setCurrentUser] = useState(localStorage.getItem("email") || null)
 
   useEffect(() => {
     const status = localStorage.getItem("isLoggedIn") || false
     status && setIsLoggedIn(true)
+    const name = localStorage.getItem("email")
+    name && setCurrentUser(name)
   }, [])
 
   const userLogout = () => {
@@ -38,9 +42,20 @@ const NavbarComponent = (): JSX.Element => {
             Contact Us
           </Nav.Link>
           {isLoggedIn ? (
-            <Link to="" onClick={() => userLogout()} className="btn btn-custom btn-custom-sm btn-lg page-scroll">
-              Logout{" "}
-            </Link>
+            // <Link to="" onClick={() => userLogout()} className="btn btn-custom btn-custom-sm btn-lg page-scroll">
+            //   Logout{" "}
+
+            // </Link>
+            <NavDropdown title={currentUser || ""} id="nav-dropdown" style={{ right: "0", left: "auto" }}>
+              <NavDropdown.Item as={Link} to="/ask-question">
+                Ask Question
+              </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/diagnosis">
+                Past Questions
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item onClick={() => userLogout()}>Logout</NavDropdown.Item>
+            </NavDropdown>
           ) : (
             <Link to="/signup" className="btn btn-custom btn-custom-sm btn-lg page-scroll">
               Join Us{" "}

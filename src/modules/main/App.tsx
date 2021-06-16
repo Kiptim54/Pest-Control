@@ -9,9 +9,8 @@ import Diagnosis from "./Diagnosis"
 import DetailDiagnosis from "src/modules/main/DetailDiagnosis"
 import LandingPage from "./LandingPage"
 import BrowseProducts from "../shop/BrowseProducts"
-import Footer from "src/components/Footer"
 import Layout from "src/components/Layout"
-
+import AskQuestion from "src/modules/main/AskQuestion"
 //toastify
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
@@ -47,12 +46,13 @@ function App() {
       <Router primary={false}>
         <Layout path="/">
           <GeneralRoute component={LandingPage} path="/" />
+          <GeneralRoute component={Diagnosis} path="/diagnosis" />
+          <GeneralRoute component={DetailDiagnosis} path="/diagnosis/detail" />
+          <GeneralRoute component={BrowseProducts} path="/shop" />
+          <GeneralRoute component={AskQuestion} path="/ask-question" />
         </Layout>
-        <PrivateRoute component={SignUp} path="/signup" />
+        <GeneralRoute component={SignUp} path="/signup" />
         <GeneralRoute component={Login} path="/login" />
-        <GeneralRoute component={Diagnosis} path="/diagnosis" />
-        <GeneralRoute component={DetailDiagnosis} path="/diagnosis/detail" />
-        <GeneralRoute component={BrowseProducts} path="/shop" />
       </Router>
       <ToastContainer
         position="top-right"

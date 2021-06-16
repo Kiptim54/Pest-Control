@@ -11,13 +11,15 @@ interface LayoutInterface {
 
 const Layout = (props: LayoutInterface & RouteComponentProps) => {
   return (
-    <Row>
-      <Col xs={12}>
-        <Navbar />
-        {props.children}
-        <Footer />
-      </Col>
-    </Row>
+    <Container fluid className="p-0 m-0">
+      <Row>
+        <Col xs={12}>
+          <Navbar />
+          {props.children}
+          <Footer />
+        </Col>
+      </Row>
+    </Container>
   )
 }
 export default Layout
