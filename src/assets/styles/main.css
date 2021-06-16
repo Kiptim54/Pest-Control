@@ -11,12 +11,17 @@ code {
 }
 
 .navbar {
+
   box-shadow: 0px 0px 6px #00000029;
+  -webkit-box-shadow: 0px 0px 6px #00000029;
+          box-shadow: 0px 0px 6px #00000029;
+  background-color: #fff;
+
 }
 
 a:link,
 a:visited {
-  color: currentColor;
+  text-decoration: none;
 }
 
 .removeOutline:focus {
@@ -24,6 +29,7 @@ a:visited {
   outline: none !important;
   border: 0;
 }
+
 
 .diagnosis {
   display: flex;
@@ -131,6 +137,22 @@ tr img {
   color: white;
   margin-bottom: 20px;
   margin-left: 400px;
+
+.green-btn {
+  background-color: #7db569 !important;
+  border: #7db569 !important;
+  min-width: 100px;
+  margin: "auto";
+}
+
+.green {
+  color: #7db569;
+}
+
+.boxShadow {
+  -webkit-box-shadow: 0px 0px 6px #00000029 !important;
+          box-shadow: 0px 0px 6px #00000029 !important;
+
 }
 
 /* Header Section */
@@ -501,4 +523,55 @@ label {
 
 .section-title p {
   font-size: 18px;
-}/*# sourceMappingURL=main.css.map */
+}
+
+
+/* Shop Section */
+#shop {
+  padding: 50px 0;
+}
+
+#shop h4 {
+  margin: 5px 0;
+  font-size: 18px;
+  color: #333;
+  font-weight: 600;
+}
+
+#shop h2 {
+  font-size: 20px;
+  font-weight: 800;
+  color: black;
+}
+
+#shop .shop-img {
+  width: 240px;
+  height: 240px;
+}
+
+#shop .thumbnail {
+  background: transparent;
+  border: 0;
+}
+
+#shop .thumbnail .caption {
+  padding: 10px 0 0 0;
+  color: #888;
+}
+
+#shop .move-right {
+  width: 60%;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.loginSide {
+  background: url(../images/header.jpeg) center center no-repeat;
+  min-height: 100vh;
+  display: table;
+  background-color: #e5e5e5;
+  background-size: cover;
+  -o-background-size: cover;
+}
+/*# sourceMappingURL=main.css.map */
+

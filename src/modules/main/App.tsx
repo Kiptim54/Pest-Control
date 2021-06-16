@@ -6,12 +6,12 @@ import { Router, Redirect } from "@reach/router"
 import Login from "src/modules/authentication/Login"
 import SignUp from "src/modules/authentication/SignUp"
 import Diagnosis from "./Diagnosis"
-<<<<<<< HEAD
 import DetailDiagnosis from "./DetailDiagnosis"
-=======
 import LandingPage from "./LandingPage"
+import BrowseProducts from "../shop/BrowseProducts"
+import Footer from "src/components/Footer"
 
->>>>>>> 8429fe2377fc0ddda119eabe3940932ae7de6d7e
+
 
 /**
  *
@@ -48,7 +48,10 @@ function App() {
         <GeneralRoute component={Login} path="/login" />
         <GeneralRoute component={Diagnosis} path="/diagnosis" />
         <GeneralRoute component={DetailDiagnosis} path="/diagnosis/detail" />
+        <GeneralRoute component={BrowseProducts} path="/shop"/>
+
       </Router>
+      <Footer />
     </div>
   )
 }
