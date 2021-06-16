@@ -44,6 +44,109 @@ a:visited {
   box-shadow: 0px 0px 6px #00000029 !important;
 }
 
+.diagnosis {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  margin-top: 2px;
+  padding: 5px;
+  padding-top: 25px;
+  border-radius: 10px;
+}
+
+.diagnosis__button {
+  display: flex;
+  justify-content: space-between;
+}
+.diagnosis__button > button {
+  max-width: 150px;
+  background-color: #7db569;
+  border-radius: 10px;
+  border: 1px solid #7db569;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.diagnosis__table {
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+thead tr {
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 2px solid #e7e7e7;
+  background-color: rgb(245, 244, 244);
+}
+
+thead td {
+  font-weight: 700;
+}
+
+td {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  color: #222;
+}
+tbody tr {
+  cursor: pointer;
+}
+tr td:last-child {
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+}
+
+tr img {
+  width: 150px;
+  height: 100px;
+}
+
+.detaildiagnosis__details {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(245, 244, 244);
+  margin-top: 2px;
+  padding: 5px;
+  padding-top: 25px;
+  border-radius: 10px;
+}
+
+.detaildiagnosis {
+  margin-left: 50px;
+}
+
+.detaildiagnosis > strong {
+  margin-top: 5px;
+  font-size: larger;
+}
+
+.detaildiagnosis__product {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(218, 214, 214);
+  padding: 10px;
+  margin-right: 5px;
+}
+
+.detaildiagnosis__productlist {
+  margin-right: 8px;
+}
+
+.detaildiagnosis > textarea {
+  margin-bottom: 5px;
+}
+.detaildiagnosis > button {
+  max-width: 150px;
+  background-color: #7db569;
+  border-radius: 10px;
+  border: 1px solid #7db569;
+  color: white;
+  margin-bottom: 20px;
+  margin-left: 400px;
+}
 /* Header Section */
 .intro {
   display: table;
@@ -376,6 +479,41 @@ label {
 .section-title p {
   font-size: 18px;
 }
+
+/* Shop Section */
+#shop {
+  padding: 50px 0;
+}
+#shop h4 {
+  margin: 5px 0;
+  font-size: 18px;
+  color: #333;
+  font-weight: 600;
+}
+#shop h2 {
+  font-size: 20px;
+  font-weight: 800;
+  color: black;
+}
+
+#shop .shop-img {
+  width: 240px;
+  height: 240px;
+}
+#shop .thumbnail {
+  background: transparent;
+  border: 0;
+}
+#shop .thumbnail .caption {
+  padding: 10px 0 0 0;
+  color: #888;
+}
+#shop .move-right {
+  width: 60%;
+  margin-left: auto;
+  margin-right: 0;
+}
+
 .loginSide {
   background: url(../images/header.jpeg) center center no-repeat;
   min-height: 100vh;
