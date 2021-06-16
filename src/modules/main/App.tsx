@@ -6,6 +6,7 @@ import { Router, Redirect } from "@reach/router"
 import Login from "src/modules/authentication/Login"
 import SignUp from "src/modules/authentication/SignUp"
 import LandingPage from "./LandingPage"
+import DetailDiagnosis from "./DetailDiagnosis"
 
 /**
  *
@@ -40,6 +41,7 @@ function App() {
         <GeneralRoute component={LandingPage} path="/" />
         <GeneralRoute component={SignUp} path="/signup" />
         <GeneralRoute component={Login} path="/login" />
+        <GeneralRoute component={DetailDiagnosis} path="/diagnosis/detail" />
       </Router>
     </div>
   )

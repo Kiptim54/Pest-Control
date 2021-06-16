@@ -397,4 +397,30 @@ label {
 .section-title p {
   font-size: 18px;
 }
+.detaildiagnosis {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+}
+
+.detaildiagnosis > strong {
+  margin-top: 5px;
+  font-size: larger;
+}
+
+.detaildiagnosis__product {
+  display: flex;
+  flex-direction: row;
+  background-color: #dad6d6;
+  padding: 10px;
+  margin-right: 5px;
+}
+
+.detaildiagnosis__productlist {
+  margin-right: 8px;
+}
+
+.detaildiagnosis > textarea {
+  margin-bottom: 20px;
+}
 /*# sourceMappingURL=main.css.map */
