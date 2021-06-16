@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
-import { Link } from "@reach/router"
+import { Link, navigate } from "@reach/router"
+import { toast } from "react-toastify"
 import { useForm } from "react-hook-form"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
@@ -10,6 +11,7 @@ import Button from "react-bootstrap/Button"
 
 import Logo from "src/assets/images/named-logo.png"
 import Counties from "src/assets/ke.json"
+import Loader from "react-bootstrap/Spinner"
 
 interface IUser {
   name: string
@@ -37,8 +39,10 @@ const SignUp = (): JSX.Element => {
   })
 
   const [seePassword, setSeePassword] = useState<boolean>(false)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const submitHandler = (data: IUser) => {
+    setIsLoading(true)
     if (String(data.password) !== String(data.confirm_password)) {
       setError("confirm_password", {
         type: "manual",
@@ -46,6 +50,19 @@ const SignUp = (): JSX.Element => {
       })
     } else {
       console.log("this is the submitted data", data)
+      localStorage.clear()
+      localStorage.setItem("name", data?.name)
+      localStorage.setItem("email", data?.email)
+      localStorage.setItem("region", data?.region)
+      localStorage.setItem("occupation", data?.occupation)
+      localStorage.setItem("isLoggedIn", JSON.stringify(true))
+      setTimeout(() => {
+        setIsLoading(false)
+
+        toast.success("Successfully Created Account")
+
+        return navigate("/")
+      }, 2000)
     }
   }
 
@@ -191,7 +208,7 @@ const SignUp = (): JSX.Element => {
 
             <div className="d-flex justify-content-center pt-4">
               <Button className="btn green-btn" type="submit">
-                Login
+                {isLoading ? <Loader animation="border" role="status" /> : "SignUp"}
               </Button>
             </div>
           </form>

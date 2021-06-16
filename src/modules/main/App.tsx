@@ -9,7 +9,11 @@ import Diagnosis from "./Diagnosis"
 import DetailDiagnosis from "src/modules/main/DetailDiagnosis"
 import LandingPage from "./LandingPage"
 import BrowseProducts from "../shop/BrowseProducts"
-import Footer from "src/components/Footer"
+import Layout from "src/components/Layout"
+import AskQuestion from "src/modules/main/AskQuestion"
+//toastify
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 /**
  *
@@ -22,7 +26,8 @@ import Footer from "src/components/Footer"
 const PrivateRoute = (props: any) => {
   const { component: ChildComponent } = props
 
-  if (localStorage.getItem("JW-token")) {
+  if (localStorage.getItem("isLoggedIn")) {
+    console.log("not found")
     return <ChildComponent {...props} />
   } else {
     return <Redirect to={"/login"} noThrow />
@@ -38,17 +43,28 @@ const GeneralRoute = (props: any) => {
 function App() {
   return (
     <div className="App">
-      <Navbar />
-
-      <Router>
-        <GeneralRoute component={LandingPage} path="/" />
+      <Router primary={false}>
+        <Layout path="/">
+          <GeneralRoute component={LandingPage} path="/" />
+          <GeneralRoute component={Diagnosis} path="/diagnosis" />
+          <GeneralRoute component={DetailDiagnosis} path="/diagnosis/detail" />
+          <GeneralRoute component={BrowseProducts} path="/shop" />
+          <GeneralRoute component={AskQuestion} path="/ask-question" />
+        </Layout>
         <GeneralRoute component={SignUp} path="/signup" />
         <GeneralRoute component={Login} path="/login" />
-        <GeneralRoute component={Diagnosis} path="/diagnosis" />
-        <GeneralRoute component={DetailDiagnosis} path="/diagnosis/detail" />
-        <GeneralRoute component={BrowseProducts} path="/shop" />
       </Router>
-      <Footer />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   )
 }
