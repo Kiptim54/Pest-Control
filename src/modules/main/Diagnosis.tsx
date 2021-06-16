@@ -1,12 +1,17 @@
 import React from "react"
 import { Button } from "react-bootstrap"
+import { Link } from "@reach/router"
 
 const Diagnosis = () => {
   return (
     <div className="diagnosis">
       <div className="diagnosis__button">
         <button>Previous Problem</button>
-        <button> New Problem</button>
+        <button className="green-btn">
+          <Link to="/ask-question" style={{ color: "#ffff" }}>
+            New Problem
+          </Link>
+        </button>
       </div>
       <div className="diagnosis__table">
         <table width="100%">

@@ -433,6 +433,7 @@ label {
 #footer {
   background: #f6f6f6;
   padding: 30px 0;
+  margin-top: auto;
 }
 
 #footer p {
@@ -608,5 +609,9 @@ label {
   background-color: #e5e5e5;
   background-size: cover;
   -o-background-size: cover;
+}
+
+.skeleton {
+  marginbottom: 1rem;
 }
 /*# sourceMappingURL=main.css.map */
