@@ -48,7 +48,6 @@ a:visited {
   display: flex;
   flex-direction: column;
   max-width: 100%;
-  background-color: rgb(245, 244, 244);
   margin-top: 2px;
   padding: 5px;
   padding-top: 25px;
@@ -79,6 +78,7 @@ table {
 thead tr {
   border-top: 1px solid #e7e7e7;
   border-bottom: 2px solid #e7e7e7;
+  background-color: rgb(245, 244, 244);
 }
 
 thead td {
@@ -524,4 +524,3 @@ label {
   background-size: cover;
   -o-background-size: cover;
 }
-
