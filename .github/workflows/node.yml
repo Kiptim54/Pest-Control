@@ -17,4 +17,4 @@ jobs:
         run: yarn
 
       - name: Run tests
-        run: yarn test -u --coverage
+        run: yarn test -u --coverage --passWithNoTests
