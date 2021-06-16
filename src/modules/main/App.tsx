@@ -7,6 +7,11 @@ import Login from "src/modules/authentication/Login"
 import SignUp from "src/modules/authentication/SignUp"
 import LandingPage from "./LandingPage"
 import Footer from "src/components/Footer"
+import Layout from "src/components/Layout"
+
+//toastify
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 /**
  *
@@ -19,7 +24,8 @@ import Footer from "src/components/Footer"
 const PrivateRoute = (props: any) => {
   const { component: ChildComponent } = props
 
-  if (localStorage.getItem("JW-token")) {
+  if (localStorage.getItem("isLoggedIn")) {
+    console.log("not found")
     return <ChildComponent {...props} />
   } else {
     return <Redirect to={"/login"} noThrow />
@@ -35,14 +41,24 @@ const GeneralRoute = (props: any) => {
 function App() {
   return (
     <div className="App">
-      <Navbar />
-
-      <Router>
-        <GeneralRoute component={LandingPage} path="/" />
-        <GeneralRoute component={SignUp} path="/signup" />
+      <Router primary={false}>
+        <Layout path="/">
+          <GeneralRoute component={LandingPage} path="/" />
+        </Layout>
+        <PrivateRoute component={SignUp} path="/signup" />
         <GeneralRoute component={Login} path="/login" />
       </Router>
-      <Footer />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   )
 }

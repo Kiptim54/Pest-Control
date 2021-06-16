@@ -1,5 +1,6 @@
 import React, { useState } from "react"
-import { Link } from "@reach/router"
+import { Link, Redirect, navigate } from "@reach/router"
+import { toast } from "react-toastify"
 import { useForm } from "react-hook-form"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
@@ -7,6 +8,7 @@ import Col from "react-bootstrap/Col"
 import Card from "react-bootstrap/Card"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
+import Loader from "react-bootstrap/Spinner"
 
 import Logo from "src/assets/images/named-logo.png"
 
@@ -25,9 +27,19 @@ const Login = (): JSX.Element => {
     },
   })
   const [seePassword, setSeePassword] = useState<boolean>(false)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const submitHandler = (data: ILogin) => {
+    setIsLoading(true)
     console.log("this is the submitted data", data)
+    localStorage.setItem("email", data?.email)
+    localStorage.setItem("isLoggedIn", JSON.stringify(true))
+    setTimeout(() => {
+      setIsLoading(false)
+      toast.success("Successfully logged In")
+
+      return navigate("/")
+    }, 2000)
   }
   return (
     <Container fluid className="d-flex justify-content-center flex-column vh-90">
@@ -84,7 +96,7 @@ const Login = (): JSX.Element => {
             </Form.Group>
             <div className="d-flex justify-content-center pt-4">
               <Button className="btn green-btn" type="submit">
-                Login
+                {isLoading ? <Loader animation="border" role="status" /> : "Login"}
               </Button>
             </div>
           </Form>
