@@ -7,6 +7,8 @@ import Login from "src/modules/authentication/Login"
 import SignUp from "src/modules/authentication/SignUp"
 import LandingPage from "./LandingPage"
 import DetailDiagnosis from "./DetailDiagnosis"
+import Footer from "src/components/Footer"
+
 
 /**
  *
@@ -43,6 +45,7 @@ function App() {
         <GeneralRoute component={Login} path="/login" />
         <GeneralRoute component={DetailDiagnosis} path="/diagnosis/detail" />
       </Router>
+      <Footer />
     </div>
   )
 }
