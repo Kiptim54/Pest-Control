@@ -8,7 +8,7 @@ interface IAPIResources {
 }
 
 const API = Axios.create({
-  baseURL: "http://161.35.20.228:7000/api/",
+  baseURL: process.env.REACT_APP_BASE_URL,
 })
 
 const token = localStorage.getItem("JW-token")
