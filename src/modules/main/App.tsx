@@ -6,6 +6,7 @@ import { Router, Redirect } from "@reach/router"
 import Login from "src/modules/authentication/Login"
 import SignUp from "src/modules/authentication/SignUp"
 import LandingPage from "./LandingPage"
+import BrowseProducts from "../shop/BrowseProducts"
 import Footer from "src/components/Footer"
 
 /**
@@ -41,6 +42,8 @@ function App() {
         <GeneralRoute component={LandingPage} path="/" />
         <GeneralRoute component={SignUp} path="/signup" />
         <GeneralRoute component={Login} path="/login" />
+
+        <GeneralRoute component={BrowseProducts} path="/shop"/>
       </Router>
       <Footer />
     </div>

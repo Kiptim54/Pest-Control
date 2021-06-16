@@ -1,0 +1,58 @@
+{
+    
+    "Products": [{
+            "product-id": 12,
+            "image": "https://www.planetnatural.com/wp-content/uploads/2013/03/pyrethrin-spray-400x400.jpg",
+            "product-name": "Lorem ipsum dolor",
+            "shop-name": "Lorem ipsum dolor",
+            "city": "Kisumu",
+            "phone": "0700 123 122",
+            "price": 500
+        },
+        {
+            "product-id": 13,
+            "image": "https://www.planetnatural.com/wp-content/uploads/2013/03/pyrethrin-spray-400x400.jpg",
+            "product-name": "Lorem ipsum dolor",
+            "shop-name": "Lorem ipsum dolor",
+            "city": "Kisumu",
+            "phone": "0700 123 122",
+            "price": 500
+        },
+        {
+            "product-id": 14,
+            "image": "https://www.planetnatural.com/wp-content/uploads/2013/03/pyrethrin-spray-400x400.jpg",
+            "product-name": "Lorem ipsum dolor",
+            "shop-name": "Lorem ipsum dolor",
+            "city": "Kisumu",
+            "phone": "0700 123 122",
+            "price": 500
+        },
+        {
+            "product-id": 15,
+            "image": "https://www.planetnatural.com/wp-content/uploads/2013/03/pyrethrin-spray-400x400.jpg",
+            "product-name": "Lorem ipsum dolor",
+            "shop-name": "Lorem ipsum dolor",
+            "city": "Kisumu",
+            "phone": "0700 123 122",
+            "price": 500
+        },
+        {
+            "product-id": 16,
+            "image": "https://www.planetnatural.com/wp-content/uploads/2013/03/pyrethrin-spray-400x400.jpg",
+            "product-name": "Lorem ipsum dolor",
+            "shop-name": "Lorem ipsum dolor",
+            "city": "Kisumu",
+            "phone": "0700 123 122",
+            "price": 500
+        },
+        {
+            "product-id": 17,
+            "image": "https://www.planetnatural.com/wp-content/uploads/2013/03/pyrethrin-spray-400x400.jpg",
+            "product-name": "Lorem ipsum dolor",
+            "shop-name": "Lorem ipsum dolor",
+            "city": "Kisumu",
+            "phone": "0700 123 122",
+            "price": 500
+        }
+    ]
+}

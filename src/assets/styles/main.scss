@@ -376,6 +376,40 @@ label {
 .section-title p {
   font-size: 18px;
 }
+/* Shop Section */
+#shop {
+  padding: 50px 0;
+}
+#shop h4 {
+  margin: 5px 0;
+  font-size: 18px;
+  color: #333;
+  font-weight: 600;
+}
+#shop h2 {
+  font-size: 20px;
+  font-weight: 800;
+  color: black;
+}
+
+#shop .shop-img {
+  width: 240px;
+  height: 240px;
+}
+#shop .thumbnail {
+  background: transparent;
+  border: 0;
+}
+#shop .thumbnail .caption {
+  padding: 10px 0 0 0;
+  color: #888;
+}
+#shop .move-right {
+  width: 60%;
+  margin-left: auto;
+  margin-right: 0;
+}
+
 .loginSide {
   background: url(../images/header.jpeg) center center no-repeat;
   min-height: 100vh;
