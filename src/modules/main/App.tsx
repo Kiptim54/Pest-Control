@@ -42,6 +42,7 @@ function App() {
         <GeneralRoute component={SignUp} path="/signup" />
         <GeneralRoute component={Login} path="/login" />
       </Router>
+      <Footer />
     </div>
   )
 }

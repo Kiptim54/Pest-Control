@@ -15,7 +15,9 @@ const NavbarComponent = (): JSX.Element => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto" navbarScroll>
-          <Nav.Link href="/">Home</Nav.Link>
+          <Nav.Link as={Link} to="/">
+            Home
+          </Nav.Link>
           <Nav.Link href="/#contact" className="page-scroll">
             Contact Us
           </Nav.Link>
