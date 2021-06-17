@@ -9,7 +9,7 @@ import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 
-import Loader from "react-bootstrap/Spinner"
+import { MdArrowBack } from "react-icons/md"
 import { ICrop, IPost, IDiseases } from "src/modules/main/types"
 import Step1 from "./subs/step1"
 import Step2 from "./subs/step2"
@@ -132,6 +132,7 @@ const AskQuestion = () => {
   }, [])
 
   const submitQuestion = (data: IPost) => {
+    setIsSubmitting(true)
     const formData = new FormData()
     formData.append("description", data?.description)
     formData.append("image", selectedFile)
@@ -147,7 +148,20 @@ const AskQuestion = () => {
         handleNext()
       })
       .catch((err) => {
-        toast.error("Error creating post please try again")
+        if (err.response.status === 400 && err.response.data.errors) {
+          const apiErrorsObject = err.response.data.errors
+          const keys: any[] = Object.keys(apiErrorsObject)
+          keys.map((key) => {
+            setError(key, {
+              type: "manual",
+              message: apiErrorsObject[key][0],
+            })
+          })
+          toast.error("Please fix the errors on the form")
+          setIsSubmitting(false)
+        } else {
+          toast.error("Error creating post please try again")
+        }
       })
       .finally(() => setIsSubmitting(false))
   }
@@ -175,6 +189,11 @@ const AskQuestion = () => {
   return (
     <Container style={{ minHeight: "90vh", padding: "2rem" }}>
       <Row>
+        <Col xs={12}>
+          <Link to="/diagnosis">
+            <MdArrowBack size={20} /> Back to Past Questions
+          </Link>
+        </Col>
         <Col xs={12}>
           <Stepper activeStep={activeStep} alternativeLabel>
             {steps.map((label) => (

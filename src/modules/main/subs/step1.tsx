@@ -44,7 +44,7 @@ const Step1 = (props: IStep1) => {
           <Row>
             <Col md={12} xs={12}>
               {isLoading ? (
-                <Skeleton style={{ fontSize: 20, lineHeight: 2 }} />
+                <Skeleton style={{ fontSize: 20, lineHeight: 2, marginBottom: "2rem" }} />
               ) : (
                 <Form.Group className="mb-3">
                   <Form.Label>Select your Crop</Form.Label>
@@ -69,7 +69,7 @@ const Step1 = (props: IStep1) => {
             </Col>
             <Col md={12} xs={12}>
               {isLoading ? (
-                <Skeleton style={{ fontSize: 20, lineHeight: 2 }} />
+                <Skeleton style={{ fontSize: 20, lineHeight: 2, marginBottom: "2rem" }} />
               ) : (
                 <Form.Group className="mb-3">
                   <Form.Label>Description (Optional)</Form.Label>
@@ -89,7 +89,7 @@ const Step1 = (props: IStep1) => {
 
             <Col md={12} xs={12}>
               {isLoading ? (
-                <Skeleton style={{ fontSize: 20, lineHeight: 2 }} />
+                <Skeleton style={{ fontSize: 20, lineHeight: 2, marginBottom: "2rem" }} />
               ) : (
                 <Form.Group className="mb-3">
                   <Form.Label>Attach Photo (Optional)</Form.Label>
