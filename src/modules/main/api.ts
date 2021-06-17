@@ -6,7 +6,8 @@ import Axios from "axios"
 interface IAPIResources {
   CROPS: string
   POSTS: string
-  DISEASES: string
+  DISEASES: string,
+  SHOPPRODUCTS: string,
 }
 
 const API = Axios.create({
@@ -27,6 +28,7 @@ const APIResources: IAPIResources = {
   CROPS: "crop/",
   POSTS: "post/",
   DISEASES: "disease/",
+  SHOPPRODUCTS: "shop-product/"
 }
 
 export { API, APIResources }
