@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { API, APIResources } from "src/modules/main/api"
 import { Button } from "react-bootstrap"
 import { Link } from "@reach/router"
+import { Container } from "@material-ui/core"
 
 interface IDiseases {
   id: string
@@ -32,15 +33,17 @@ const Diagnosis = () => {
   }, [])
 
   return (
-    <div className="diagnosis">
-      <div className="diagnosis__button">
-        <button>Previous Problem</button>
-        <button className="green-btn">
-          <Link to="/ask-question" style={{ color: "#ffff" }}>
-            New Problem
-          </Link>
-        </button>
-      </div>
+    <Container className="p-5">
+      <div className="diagnosis">
+        <div className="diagnosis__button">
+          <button>Previous Problem</button>
+          <button className="green-btn">
+            <Link to="/ask-question" style={{ color: "#ffff" }}>
+              New Problem
+            </Link>
+          </button>
+        </div>     
+
       <div className="diagnosis__table">
         <table width="100%">
           <thead>
@@ -72,6 +75,9 @@ const Diagnosis = () => {
         </table>
       </div>
     </div>
+
+    </Container>
+
   )
 }
 export default Diagnosis

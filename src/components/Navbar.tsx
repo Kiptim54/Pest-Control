@@ -21,14 +21,13 @@ const NavbarComponent = (): JSX.Element => {
   }, [])
 
   const userLogout = () => {
-    localStorage.clear()
     setIsLoggedIn(false)
     toast.success("successfully logged you out")
     return navigate("/login")
   }
 
   return (
-    <Navbar className="justify-content-between navbar" expand="md" sticky="top">
+    <Navbar className="justify-content-between navbar" expand="md">
       <Navbar.Brand as={Link} to="/">
         {<img src={Logo} width="50px" height="auto" alt="logo" />}
       </Navbar.Brand>
