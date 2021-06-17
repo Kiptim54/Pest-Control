@@ -40,6 +40,9 @@ const NavbarComponent = (): JSX.Element => {
           <Nav.Link href="/#contact" className="page-scroll">
             Contact Us
           </Nav.Link>
+          <Nav.Link as={Link} to="/shop">
+            Products
+          </Nav.Link>
           {isLoggedIn ? (
             // <Link to="" onClick={() => userLogout()} className="btn btn-custom btn-custom-sm btn-lg page-scroll">
             //   Logout{" "}

@@ -1,7 +1,26 @@
-import React from "react"
-import JsonData from "./data.json"
+import React, { useEffect, useState } from "react"
+import { API, APIResources } from "src/modules/main/api"
+import { IProduct } from "../main/types"
+import placeHolder from  "src/assets/images/logo.png"
 
 const BrowseProducts = () => {
+  const [products, setProducts] = useState<IProduct[]>([])
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+
+  //fetch shop products
+  useEffect(() => {
+    setIsLoading(true)
+    API.get(APIResources.SHOPPRODUCTS)
+      .then((res) => {
+        console.log(res.data)
+        setProducts(res.data)
+      })
+      .catch((err) => {
+        console.log(err.response)
+      })
+      .finally(() => setIsLoading(false))
+  }, [])
+
   return (
     <div id="shop" className="text-center">
       <div className="container">
@@ -20,22 +39,20 @@ const BrowseProducts = () => {
             </div>
           </div>
         </div>
-        <div className="text-center section-title mb-4">
-            <p>Browse results for: <strong>{JsonData.Products[0]["product-name"]}</strong></p>
-        </div>
+        
         <div id="row" className="row">
-          {JsonData.Products
-            ? JsonData.Products.map((d, i) => (
-                <div key={`${d["product-id"]}`} className="col-md-3 col-sm-6 mb-5 shop">
+          {products
+            ? products?.map((d, i) => (
+                <div key={`${d.id}`} className="col-md-3 col-sm-6 mb-5 shop">
                   <div className="thumbnail">
                     {" "}
-                    <img src={d.image} alt="..." className="shop-img" />
+                    <img src={d.pesticide.image ? d.pesticide?.image : placeHolder} alt="..." className="shop-img" />
                     <div className="caption">
-                      <h4>{d["product-name"]}</h4>
+                      <h4>{d.pesticide?.name}</h4>
                       <span>
-                        {d["shop-name"]}, {d.city}
+                        {d.shop?.name}, {d.shop?.city}
                       </span>
-                      <p className="m-0">{d.phone}</p>
+                      <p className="m-0">{d.shop?.phone}</p>
                       <h2>KES. {d.price}</h2>
                     </div>
                   </div>
