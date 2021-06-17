@@ -26,4 +26,24 @@ interface IDiseases {
   pesticide: string
 }
 
-export { IPost, ICrop, IDiseases }
+interface IProduct {
+  id: string
+  price: string
+  shop: IShop
+  pesticide: IPesticide
+}
+
+interface IPesticide {
+  id: string,
+  name: string,
+  image: string
+}
+
+interface IShop {
+  id: string,
+  name: string,
+  city: string,
+  phone: string,
+}
+
+export { IPost, ICrop, IDiseases, IProduct }
