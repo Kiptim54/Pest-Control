@@ -21,7 +21,9 @@ const NavbarComponent = (): JSX.Element => {
   }, [])
 
   const userLogout = () => {
-    localStorage.clear()
+    localStorage.removeItem("isLoggedIn")
+    localStorage.removeItem("email")
+
     setIsLoggedIn(false)
     toast.success("successfully logged you out")
     return navigate("/login")
