@@ -96,10 +96,13 @@ td {
 tbody tr {
   cursor: pointer;
 }
-tr td:last-child {
+tr td:last-child a {
   display: flex;
-  align-items: center;
   margin-right: 5px;
+  margin-top: -20px;
+  align-items: center;
+  font-size: 1.5rem;
+  color: rgb(66, 65, 65);
 }
 
 tr img {
@@ -529,5 +532,5 @@ label {
   -o-background-size: cover;
 }
 .skeleton {
-  marginbottom: 1rem;
+  margin-bottom: 1rem;
 }
