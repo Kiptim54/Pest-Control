@@ -8,28 +8,62 @@ import Card from "react-bootstrap/Card"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 
-import Loader from "react-bootstrap/Spinner"
-import { ICrop, IPost } from "src/modules/main/types"
+import { ICrop, IDiseases, IPost } from "src/modules/main/types"
+import { watch } from "fs"
+import { useEffect } from "react"
 
 interface IStep1 {
   crops: ICrop[] | undefined
   isLoading: Boolean
   errors: any
-  handleNext: any
   register: any
   setSelectedCrop: Dispatch<ICrop>
   setSelectedFile: Dispatch<Blob>
+  selectedFile: any
   handleSubmit: any
   submitQuestion: any
   isSubmitting: boolean
+  watch: any
+  setValue: any
+  setFormData: any
+  formData: {
+    crop: string
+    description: string
+  }
+  handleNext: any
+  foundCrop?: IDiseases | undefined
+  setFoundCrop: Dispatch<IDiseases>
 }
 
 const Step1 = (props: IStep1) => {
-  const { crops, isLoading, errors, register, setSelectedCrop, setSelectedFile, handleSubmit, submitQuestion, isSubmitting } = props
+  const {
+    crops,
+    isLoading,
+    errors,
+    register,
+    setSelectedCrop,
+    setSelectedFile,
+    handleSubmit,
+    submitQuestion,
+    watch,
+    setValue,
+    formData,
+    setFormData,
+    selectedFile,
+    handleNext,
+  } = props
+
+  const cropValue = watch("crops")
+
+  useEffect(() => {
+    setValue("crop", formData.crop)
+    setValue("description", formData.description)
+  })
+
   return (
     <Row className="justify-content-center p-3">
       <Col xs={7}>
-        <form style={{ margin: "auto" }} onSubmit={handleSubmit(submitQuestion)}>
+        <form style={{ margin: "auto" }}>
           <Row>
             <Col className="pb-4">
               <h4 className="green pb-0" style={{ fontWeight: "bold" }}>
@@ -54,6 +88,12 @@ const Step1 = (props: IStep1) => {
                     ref={register({ required: "Please select a crop" })}
                     isInvalid={errors?.crop ? true : false}
                     onClick={(e: any) => setSelectedCrop(e.target?.value)}
+                    onChange={(e: any) =>
+                      setFormData((prevState: IPost) => {
+                        return { ...prevState, crop: e.target?.value }
+                      })
+                    }
+                    defaultValue={formData.crop}
                   >
                     <option value="">Select Plant</option>
                     {crops?.map((crop) => (
@@ -72,14 +112,21 @@ const Step1 = (props: IStep1) => {
                 <Skeleton style={{ fontSize: 20, lineHeight: 2, marginBottom: "2rem" }} />
               ) : (
                 <Form.Group className="mb-3">
-                  <Form.Label>Description (Optional)</Form.Label>
+                  <Form.Label>Description</Form.Label>
                   <Form.Control
                     className="form-control"
                     type="text"
-                    placeholder=""
+                    placeholder="Please explain your problem"
                     name="description"
                     ref={register({ required: "Please input your description" })}
                     isInvalid={errors.description ? true : false}
+                    onChange={(e: any) =>
+                      setFormData((prevState: IPost) => {
+                        return { ...prevState, description: e.target?.value }
+                      })
+                    }
+                    defaultValue={formData.description}
+                    required
                   />
 
                   {errors.description && <Form.Control.Feedback type="invalid">{errors?.description?.message}</Form.Control.Feedback>}
@@ -98,19 +145,22 @@ const Step1 = (props: IStep1) => {
                     placeholder=""
                     name="image"
                     ref={register()}
+                    accept="image/*"
                     isInvalid={errors.image ? true : false}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                    onClick={(e: any) => {
                       e.target.files && setSelectedFile(e.target?.files[0])
                     }}
+                    defaultValue={selectedFile || ""}
                   />
 
                   {errors.image && <Form.Control.Feedback type="invalid">{errors?.image?.message}</Form.Control.Feedback>}
                 </Form.Group>
               )}
             </Col>
-            <Col xs={12}>
-              <Button type="submit" className="green-btn">
-                {isSubmitting ? <Loader animation="border" role="status" /> : "Next"}
+            <Col xs={12} className="d-flex justify-content-end">
+              <Button onClick={() => handleNext()} className="green-btn" type="submit">
+                {/* {isSubmitting ? <Loader animation="border" role="status" /> : "Next"} */}
+                Next
               </Button>
             </Col>
           </Row>
