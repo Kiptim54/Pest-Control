@@ -89,7 +89,7 @@ const Diagnosis = () => {
               ) : (
                 posts?.map((d) => (
                   <tr>
-                    <td>{crops[Number(d?.crop)]?.name}</td>
+                    <td>{crops[Number(d?.crop) - 1]?.name}</td>
                     <td>{d?.description}</td>
                     <td>
                       <img src={d?.image} alt=""></img>
