@@ -1,8 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   overflow-x: hidden;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -15,8 +14,7 @@ code {
 }
 
 .navbar {
-  -webkit-box-shadow: 0px 0px 6px #00000029;
-          box-shadow: 0px 0px 6px #00000029;
+  box-shadow: 0px 0px 6px #00000029;
   background-color: #fff;
 }
 
@@ -26,8 +24,7 @@ a:visited {
 }
 
 .removeOutline:focus {
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
   outline: none !important;
   border: 0;
 }
@@ -44,18 +41,12 @@ a:visited {
 }
 
 .boxShadow {
-  -webkit-box-shadow: 0px 0px 6px #00000029 !important;
-          box-shadow: 0px 0px 6px #00000029 !important;
+  box-shadow: 0px 0px 6px #00000029 !important;
 }
 
 .diagnosis {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   max-width: 100%;
   margin-top: 2px;
   padding: 5px;
@@ -64,12 +55,8 @@ a:visited {
 }
 
 .diagnosis__button {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 
 .diagnosis__button > button {
@@ -109,14 +96,13 @@ tbody tr {
   cursor: pointer;
 }
 
-tr td:last-child {
-  display: -webkit-box;
-  display: -ms-flexbox;
+tr td:last-child a {
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   margin-right: 5px;
+  margin-top: -20px;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #424141;
 }
 
 tr img {
@@ -125,13 +111,8 @@ tr img {
 }
 
 .detaildiagnosis__details {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   background-color: #f5f4f4;
   margin-top: 2px;
   padding: 5px;
@@ -149,13 +130,8 @@ tr img {
 }
 
 .detaildiagnosis__product {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
   background-color: #dad6d6;
   padding: 10px;
   margin-right: 5px;
@@ -229,7 +205,6 @@ header .intro-text {
   text-transform: uppercase;
   color: #fff;
   background-color: #b0dca2;
-  background-image: -webkit-gradient(linear, left top, right top, from(#b0dca2), to(#7cb569));
   background-image: linear-gradient(to right, #b0dca2 0%, #7cb569 100%);
   padding: 14px 34px;
   letter-spacing: 1px;
@@ -237,7 +212,6 @@ header .intro-text {
   font-size: 15px;
   font-weight: 500;
   border-radius: 25px;
-  -webkit-transition: all 0.5s linear;
   transition: all 0.5s linear;
   border: 0;
 }
@@ -263,7 +237,6 @@ header .intro-text {
 .btn.active {
   background-image: none;
   outline: 0;
-  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
@@ -281,7 +254,6 @@ a:focus,
 /* Contact Section */
 #contact {
   padding: 100px 0 60px 0;
-  background: -webkit-gradient(linear, left top, right top, from(#40802b), to(#7cb569));
   background: linear-gradient(to right, #40802b 0%, #7cb569 100%);
   color: rgba(255, 255, 255, 0.75);
 }
@@ -357,16 +329,13 @@ label {
   background-image: none;
   border: 1px solid #ddd;
   border-radius: 0;
-  -webkit-box-shadow: none;
   box-shadow: none;
-  -webkit-transition: none;
   transition: none;
 }
 
 #contact .form-control:focus {
   border-color: #999;
   outline: 0;
-  -webkit-box-shadow: transparent;
   box-shadow: transparent;
 }
 
@@ -420,7 +389,6 @@ label {
   border: 2px solid #fff;
   color: #fff;
   border-radius: 50%;
-  -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 
@@ -454,7 +422,6 @@ label {
     margin: 50px 0;
   }
 }
-
 /* Process Section */
 #process {
   padding: 100px 0;
@@ -506,17 +473,14 @@ label {
 #process i.fa {
   font-size: 38px;
   margin-bottom: 20px;
-  -webkit-transition: all 0.5s;
   transition: all 0.5s;
   color: #fff;
   width: 100px;
   height: 100px;
   padding: 30px 0;
   border-radius: 50%;
-  background: -webkit-gradient(linear, left top, right top, from(#b0dca2), to(#7cb569));
   background: linear-gradient(to right, #b0dca2 0%, #7cb569 100%);
-  -webkit-box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
-          box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
 }
 
 #process h3 {
@@ -550,7 +514,6 @@ label {
 .section-title h2::after {
   position: absolute;
   content: "";
-  background: -webkit-gradient(linear, left top, right top, from(#b0dca2), to(#7cb569));
   background: linear-gradient(to right, #b0dca2 0%, #7cb569 100%);
   height: 4px;
   width: 60px;
@@ -612,6 +575,5 @@ label {
 }
 
 .skeleton {
-  marginbottom: 1rem;
-}
-/*# sourceMappingURL=main.css.map */
+  margin-bottom: 1rem;
+}/*# sourceMappingURL=main.css.map */
