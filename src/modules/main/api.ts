@@ -5,6 +5,8 @@ import Axios from "axios"
 
 interface IAPIResources {
   CROPS: string
+  POSTS: string
+  DISEASES: string
 }
 
 const API = Axios.create({
@@ -22,7 +24,9 @@ if (token) {
  * API resource endpoints currently used in the APP
  */
 const APIResources: IAPIResources = {
-  CROPS: "crop",
+  CROPS: "crop/",
+  POSTS: "post/",
+  DISEASES: "disease/",
 }
 
 export { API, APIResources }
