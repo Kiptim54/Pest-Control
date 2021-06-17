@@ -31,25 +31,30 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 function getSteps() {
-  return ["Submit your Question", "Feedback"]
+  return ["Submit your Question", "Possible Options", "Feedback"]
 }
 
 const AskQuestion = () => {
   const [crops, setCrops] = useState<ICrop[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
-  const [selectedFile, setSelectedFile] = useState<string | Blob>("")
+  const [selectedFile, setSelectedFile] = useState<any>()
   const [selectedCrop, setSelectedCrop] = useState<ICrop>()
   const [possibleDiseases, setPossibleDiseases] = useState<IDiseases[]>([])
   const [iseFetchingDiseses, setIsFetchingDiseases] = useState<boolean>(false)
   const [pestDiseases, setPestDiseases] = useState<IDiseases[]>([])
   const classes = useStyles()
   const [activeStep, setActiveStep] = React.useState(0)
+  const [foundSolution, setFoundSolution] = useState<IDiseases>()
   const steps = getSteps()
+  const [formValues, setFormValues] = useState({
+    description: "",
+    crop: "",
+  })
 
-  const { register, handleSubmit, errors, setError, getValues } = useForm({
+  const { register, handleSubmit, errors, setError, getValues, watch, setValue } = useForm({
     criteriaMode: "all",
-    mode: "onChange",
+    mode: "onSubmit",
     reValidateMode: "onChange",
     shouldFocusError: true,
     defaultValues: {
@@ -86,6 +91,13 @@ const AskQuestion = () => {
             handleSubmit={handleSubmit}
             submitQuestion={submitQuestion}
             isSubmitting={isSubmitting}
+            watch={watch}
+            setValue={setValue}
+            formData={formValues}
+            setFormData={setFormValues}
+            selectedFile={selectedFile}
+            foundCrop={foundSolution}
+            setFoundCrop={setFoundSolution}
           />
         )
       case 1:
@@ -96,6 +108,10 @@ const AskQuestion = () => {
             handleBack={handleBack}
             handleNext={handleNext}
             selectedCrop={selectedCrop}
+            foundCrop={foundSolution}
+            setFoundCrop={setFoundSolution}
+            formData={formValues}
+            selectedFile={selectedFile}
           />
         )
 
@@ -112,6 +128,13 @@ const AskQuestion = () => {
             handleSubmit={handleSubmit}
             submitQuestion={submitQuestion}
             isSubmitting={isSubmitting}
+            watch={watch}
+            setValue={setValue}
+            formData={formValues}
+            setFormData={setFormValues}
+            selectedFile={selectedFile}
+            foundCrop={foundSolution}
+            setFoundCrop={setFoundSolution}
           />
         )
     }
@@ -135,7 +158,7 @@ const AskQuestion = () => {
     setIsSubmitting(true)
     const formData = new FormData()
     formData.append("description", data?.description)
-    formData.append("image", selectedFile)
+    selectedFile && formData.append("image", selectedFile)
     formData.append("crop", data?.crop)
 
     API.post(APIResources.POSTS, formData, {
@@ -173,17 +196,12 @@ const AskQuestion = () => {
       })
       .catch((err) => console.log(err.response))
   }, [])
-  useEffect(() => {
-    console.log(selectedCrop, "this is the selected")
 
-    const filtered: IDiseases[] = pestDiseases.filter((disease) => {
-      console.log("comparing", Number(disease.crop), Number(selectedCrop))
+  useEffect(() => {
+    const filtered: IDiseases[] = pestDiseases?.filter((disease) => {
       return Number(disease.crop) === Number(selectedCrop)
     })
     setPossibleDiseases(filtered)
-
-    console.log({ filtered })
-    console.log(pestDiseases, "this are the initial pest diseases")
   }, [selectedCrop])
 
   return (

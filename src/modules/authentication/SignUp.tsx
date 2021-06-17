@@ -61,7 +61,7 @@ const SignUp = (): JSX.Element => {
 
         toast.success("Successfully Created Account")
 
-        return navigate("/")
+        return navigate("/login")
       }, 2000)
     }
   }
