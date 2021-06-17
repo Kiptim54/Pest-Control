@@ -31,19 +31,20 @@ interface IProduct {
   price: string
   shop: IShop
   pesticide: IPesticide
+  city: string
 }
 
 interface IPesticide {
-  id: string,
-  name: string,
+  id: string
+  name: string
   image: string
 }
 
 interface IShop {
-  id: string,
-  name: string,
-  city: string,
-  phone: string,
+  id: string
+  name: string
+  city: string
+  phone: string
 }
 
 export { IPost, ICrop, IDiseases, IProduct }

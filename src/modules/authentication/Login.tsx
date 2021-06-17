@@ -31,7 +31,6 @@ const Login = (): JSX.Element => {
 
   const submitHandler = (data: ILogin) => {
     setIsLoading(true)
-    console.log("this is the submitted data", data)
     localStorage.setItem("email", data?.email)
     localStorage.setItem("isLoggedIn", JSON.stringify(true))
     setTimeout(() => {
