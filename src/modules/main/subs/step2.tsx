@@ -38,11 +38,11 @@ const Step2 = (props: IStep1) => {
     possibleDiseases.length >= 1 && setImages(possibleDiseases)
   }, [possibleDiseases])
 
-  const submitPost = (data: IDiseases) => {
+  const submitPost = (data: IDiseases, formInfo: { crop: string; description: string }) => {
     setIsSubmitting(true)
     const formData = new FormData()
-    formData.append("description", data.name)
-    selectedFile && formData.append("image", selectedFile)
+    formData.append("description", `${formInfo?.description} - Resolved to ${data.name}`)
+    selectedFile && formData.append("image", data?.image)
     formData.append("crop", data?.crop)
 
     API.post(APIResources.POSTS, formData, {
@@ -152,7 +152,7 @@ const Step2 = (props: IStep1) => {
       </Row>
       <Row className="justify-content-center">
         <Col xs={12} className="d-flex justify-content-between">
-          <Button onClick={() => foundCrop && submitPost(foundCrop)} className="green-btn">
+          <Button onClick={() => foundCrop && submitPost(foundCrop, formData)} className="green-btn">
             {isSubmitting ? <Loader animation="border" role="status" /> : "Found My Solution"}
           </Button>
           <Button className="green-btn" onClick={() => submitQuestion(formData)}>
